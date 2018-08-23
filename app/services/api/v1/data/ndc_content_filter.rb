@@ -58,6 +58,10 @@ module Api
               alias: 'indicator'
             },
             {
+              column: 'indc_indicators.slug',
+              alias: 'short_name'
+            },
+            {
               column: 'indc_sources.name',
               alias: 'source'
             },

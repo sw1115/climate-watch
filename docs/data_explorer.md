@@ -367,7 +367,7 @@ Link: </api/v1/data/ndc_sdg/goals>; rel="meta goals", </api/v1/data/ndc_sdg/targ
 
 File format:
 
-Id | Iso code3 | Country | Indicator | Source | Label | Sector | Value | Categories
+Id | Iso code3 | Country | Indicator | Short name | Source | Label | Sector | Value | Categories
 
 
 ### JSON API endpoint
@@ -384,6 +384,7 @@ Id | Iso code3 | Country | Indicator | Source | Label | Sector | Value | Categor
          "country":"string",
          "iso_code3":"ISO code 3",
          "indicator":"string",
+         "short_name":"string",
          "value":"string",
          "source":"string",
          "categories":"comma-separated string",
