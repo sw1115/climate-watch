@@ -55,7 +55,7 @@ const getSectionMeta = createSelector(
   }
 );
 
-const getDataSection = createSelector(
+export const getDataSection = createSelector(
   [state => state.data, getSection],
   (data, section) => {
     if (!data || !section) return null;
