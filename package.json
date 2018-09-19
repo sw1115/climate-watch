@@ -11,8 +11,9 @@
     ],
     "moduleNameMapper": {
       "^@root(.*)$": "<rootDir>$1",
-      "^@components(.*)$": "<rootDir>/javascript/app/components$1",
-      "^@utils(.*)$": "<rootDir>/utils$1"
+      "^components(.*)$": "<rootDir>/app/javascript/app/components$1",
+      "^utils(.*)$": "<rootDir>/app/javascript/app/utils$1",
+      "^data(.*)$": "<rootDir>/app/javascript/app/data$1"
     }
   },
   "scripts": {
