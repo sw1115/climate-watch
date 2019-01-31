@@ -68,8 +68,8 @@ const LandArea = ({
             </div>
             <div className={styles.chart}>
               {chartData &&
-              chartColors &&
-              chartConfig && (
+                chartColors &&
+                chartConfig && (
                   <SunburstChart
                     data={chartData}
                     customTooltip={<Tooltip />}
@@ -88,7 +88,7 @@ const LandArea = ({
       </Card>
     )}
     {selectedCountry &&
-    selectedYear && (
+      selectedYear && (
         <LandAreaProvider
           params={{ country: selectedCountry.value, year: selectedYear.value }}
         />
