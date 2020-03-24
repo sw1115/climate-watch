@@ -11,7 +11,7 @@ import { commitmentsData } from './ndcs-overview-section-data';
 const NdcsOverviewSection = props => {
   useEffect(() => {
     const { fetchNDCS } = props;
-    fetchNDCS(true);
+    fetchNDCS({ overrideFilter: true });
   }, []);
 
   const handleInfoClick = source => {

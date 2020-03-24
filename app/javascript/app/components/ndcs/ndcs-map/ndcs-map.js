@@ -58,7 +58,7 @@ class NDCMapContainer extends PureComponent {
   }
 
   componentWillMount() {
-    this.props.fetchNDCS();
+    this.props.fetchNDCS({ document: 'first-ndc' });
   }
 
   getTooltipText() {

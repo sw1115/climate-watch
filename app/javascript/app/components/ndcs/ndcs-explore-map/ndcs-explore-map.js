@@ -81,7 +81,7 @@ class NDCSExploreMapContainer extends PureComponent {
   }
 
   componentWillMount() {
-    this.props.fetchNDCS();
+    this.props.fetchNDCS({ document: 'first-ndc' });
   }
 
   handleSearchChange = query => {
