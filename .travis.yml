@@ -31,6 +31,8 @@ before_install:
   - gem install bundler -v 1.17.3
   - bundle install --jobs=3 --retry=3
   - yarn
+  - sudo /etc/init.d/postgresql stop
+  - sudo /etc/init.d/postgresql start 12
 before_script:
   - bundle exec rake db:create db:structure:load RAILS_ENV=test
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
