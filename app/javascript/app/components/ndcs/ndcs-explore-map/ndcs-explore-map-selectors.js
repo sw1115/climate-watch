@@ -191,7 +191,6 @@ export const getLegend = createSelector(
     if (!indicator || !indicator.legendBuckets || !maximumCountries) {
       return null;
     }
-
     const bucketsWithId = Object.keys(indicator.legendBuckets).map(id => ({
       ...indicator.legendBuckets[id],
       id
@@ -200,9 +199,12 @@ export const getLegend = createSelector(
       let partiesNumber = Object.values(indicator.locations).filter(
         l => l.label_id === parseInt(label.id, 10)
       ).length;
+      console.log('#1: ',partiesNumber)
       if (label.name === NOT_APPLICABLE_LABEL) {
         partiesNumber =
           maximumCountries - Object.values(indicator.locations).length;
+        console.log('#2: ',partiesNumber)
+
       }
       return {
         ...label,
@@ -211,6 +213,13 @@ export const getLegend = createSelector(
         color: getColorByIndex(indicator.legendBuckets, label.index)
       };
     });
+    const x = legendItems.sort(sortByIndexAndNotInfo);
+    let sum = 0;
+    x.forEach(_x => {
+      sum += _x.value;
+    })
+    console.log('getLegend: sum',sum);
+    console.log('getLegend: ',legendItems.sort(sortByIndexAndNotInfo))
     return legendItems.sort(sortByIndexAndNotInfo);
   }
 );

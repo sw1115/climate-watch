@@ -8,6 +8,7 @@ const getPercentage = value =>
 
 const CustomInnerHoverLabel = ({ x, y, value }) => (
   <text x={x} y={y - 18}>
+    {console.log('value: ',getPercentage(value))}
     <tspan x={x} textAnchor="middle">
       {getPercentage(value)} %
     </tspan>

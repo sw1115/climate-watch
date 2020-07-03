@@ -7,12 +7,19 @@ const DonutTooltip = props => {
   const {
     reference,
     chartReference,
-    content: { payload, coordinate },
-    itemName
+    content,
+    itemName,
+    data
   } = props;
+  const { payload, coordinate } = content;
+
   if (!payload || !payload[0]) return null;
+  console.log('TOOLTIP data: ',data, ' itemName: ',itemName)
+  console.log('TOOLTIP content: ',content)
+  console.log('TOOLTIP data[itemName]: ',data[payload[0].name])
 
   const percentage = parseFloat(Math.round(payload[0].value * 10)) / 10;
+
   const legendItemName = payload[0].name;
 
   const chartTop = chartReference && chartReference.getBoundingClientRect().top;

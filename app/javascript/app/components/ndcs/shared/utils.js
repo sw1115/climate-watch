@@ -21,6 +21,7 @@ export const getIndicatorEmissionsData = (
   let summedPercentage = 0;
   const data = legend.map(legendItem => {
     let legendItemValue = 0;
+    console.log('selectedIndicator: ',selectedIndicator)
     Object.entries(selectedIndicator.locations).forEach(entry => {
       const [locationIso, { label_id: labelId }] = entry;
       if (
@@ -38,22 +39,24 @@ export const getIndicatorEmissionsData = (
       value: legendItemValue
     };
   });
-
-  if (summedPercentage < 100) {
-    const notApplicableDataItem = data.find(d => d.name === 'Not Applicable');
-    if (notApplicableDataItem) {
-      const notApplicablePosition = data.indexOf(notApplicableDataItem);
-      data[notApplicablePosition] = {
-        name: noInformationLabel,
-        value: notApplicableDataItem.value + (100 - summedPercentage)
-      };
-    } else {
-      data.push({
-        name: noInformationLabel,
-        value: 100 - summedPercentage
-      });
-    }
-  }
+  console.log('#1: ',data)
+  // if (summedPercentage < 100) {
+  //   const notApplicableDataItem = data.find(d => d.name === 'Not Applicable');
+  //   if (notApplicableDataItem) {
+  //     const notApplicablePosition = data.indexOf(notApplicableDataItem);
+  //     console.log('notApplicablePosition: ',notApplicablePosition)
+  //     data[notApplicablePosition] = {
+  //       name: noInformationLabel,
+  //       value: notApplicableDataItem.value + (100 - summedPercentage)
+  //     };
+  //   } else {
+  //     data.push({
+  //       name: noInformationLabel,
+  //       value: 100 - summedPercentage
+  //     });
+  //   }
+  // }
+  console.log('#2: ',data)
   return data;
 };
 
