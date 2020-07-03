@@ -13,17 +13,18 @@ const fetchNDCS = createThunkAction(
   'fetchNDCS',
   overrideFilter => (dispatch, state) => {
     const { ndcs } = state();
+    console.log('overrideFilter: ',overrideFilter)
     if (
-      ndcs &&
-      (isEmpty(ndcs.data) || isEmpty(ndcs.data.indicators)) &&
+      // ndcs &&
+      // (isEmpty(ndcs.data) || isEmpty(ndcs.data.indicators)) &&
       !ndcs.loading
     ) {
       dispatch(fetchNDCSInit());
       fetch(
         `/api/v1/ndcs${
           overrideFilter
-            ? ''
-            : '?filter=map&source[]=CAIT&source[]=WB&source[]=NDC%20Explorer'
+            ? `?filter=map&source[]=CAIT&source[]=WB&source[]=NDC%20Explorer&subcategory=${overrideFilter.subcategory}`
+            : '?filter=map&source[]=CAIT&source[]=WB&source[]=NDC%20Explorer&subcategory=finance_and_support'
         }`
       )
         .then(response => {

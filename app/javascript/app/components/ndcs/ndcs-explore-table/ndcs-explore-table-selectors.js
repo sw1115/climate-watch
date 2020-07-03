@@ -97,7 +97,7 @@ const addIndicatorColumn = createSelector(
     const updatedTableData = data;
     return updatedTableData.map(countryRow => {
       const updatedCountryRow = { ...countryRow };
-      const countryIndicatorData = selectedIndicator.locations[countryRow.iso];
+      const countryIndicatorData = selectedIndicator.locations && selectedIndicator.locations[countryRow.iso];
       updatedCountryRow[selectedIndicatorHeader] =
         countryIndicatorData && countryIndicatorData.value;
       return updatedCountryRow;

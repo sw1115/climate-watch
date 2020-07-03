@@ -16,10 +16,12 @@ const mapStateToProps = (state, { route, location }) => ({
 
 class NDCContainer extends PureComponent {
   componentWillMount() {
-    this.props.fetchNDCS();
+    // this.props.fetchNDCS();
   }
 
   render() {
+    console.log('this.props: ')
+
     return createElement(Component, this.props);
   }
 }

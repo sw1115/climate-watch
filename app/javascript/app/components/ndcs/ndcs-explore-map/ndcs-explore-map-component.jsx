@@ -161,7 +161,7 @@ function NDCSExploreMap(props) {
                         hideResetButton
                         plain
                         showTooltip={
-                          selectedCategory && selectedCategory.label.length > 14
+                          selectedCategory && selectedCategory.label && selectedCategory.label.length > 14
                         }
                       />
                       <Dropdown
@@ -172,7 +172,7 @@ function NDCSExploreMap(props) {
                         hideResetButton
                         plain
                         showTooltip={
-                          selectedIndicator &&
+                          selectedIndicator && selectedIndicator.label &&
                           selectedIndicator.label.length > 14
                         }
                       />

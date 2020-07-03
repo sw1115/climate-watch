@@ -85,7 +85,17 @@ class NDCSExploreMapContainer extends PureComponent {
   }
 
   componentWillMount() {
-    this.props.fetchNDCS();
+    const { location } = this.props;
+    this.props.fetchNDCS({ subcategory: null });
+  }
+
+  componentDidUpdate(prevProps) {
+    const { selectedCategory: prevSelectedCategory } = prevProps;
+    const { selectedCategory } = this.props;
+
+    if (selectedCategory && (prevSelectedCategory && prevSelectedCategory.value) !== selectedCategory.value) {
+      this.props.fetchNDCS({ subcategory: selectedCategory.value });
+    }
   }
 
   handleSearchChange = query => {
@@ -129,7 +139,7 @@ class NDCSExploreMapContainer extends PureComponent {
         }
       } else {
         // This is the last legend item aggregating all the no data geographies
-        selectActiveDonutIndex(legendData.length - 1);
+        selectActiveDonutIndex(legendData && legendData.length - 1);
       }
 
       const tooltipValues = {
@@ -208,7 +218,8 @@ NDCSExploreMapContainer.propTypes = {
   indicator: PropTypes.object,
   selectActiveDonutIndex: PropTypes.func.isRequired,
   legendData: PropTypes.array,
-  tooltipCountryValues: PropTypes.object
+  tooltipCountryValues: PropTypes.object,
+  selectedCategory: PropTypes.object
 };
 
 export default withRouter(

@@ -221,7 +221,7 @@ export const getTooltipCountryValues = createSelector(
       return null;
     }
     const tooltipCountryValues = {};
-    Object.keys(selectedIndicator.locations).forEach(iso => {
+    selectedIndicator.locations && Object.keys(selectedIndicator.locations).forEach(iso => {
       const location = selectedIndicator.locations[iso];
       if (location) {
         tooltipCountryValues[iso] = {
